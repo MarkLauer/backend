@@ -1,0 +1,28 @@
+﻿@using Backend1.Services
+@model dynamic
+@inject IRNGService RNGService
+@inject ICalcService CalcService
+@{
+    ViewBag.Title = "Access service directly";
+}
+
+<h2>Calculation via Service Injection</h2>
+<p>
+    @{ 
+        int a = RNGService.Number(-1000, 1001);
+        int b = RNGService.Number(-1000, 1001);
+    }
+    <ul>
+        <li>@a + @b = <b>@CalcService.Add(a, b)</b></li>
+        <li>@a - @b = <b>@CalcService.Sub(a, b)</b></li>
+        <li>@a * @b = <b>@CalcService.Mul(a, b)</b></li>
+        <li>@a / @b = @if (b == 0)
+        { 
+            <b>Division by zero</b>
+        }
+        else
+        {
+            <b>@CalcService.Div(a, b)</b>
+        }</li>
+    </ul>
+</p>

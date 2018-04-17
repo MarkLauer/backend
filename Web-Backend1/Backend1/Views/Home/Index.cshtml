@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Date-time Service Demonstration</h2>
+<ul>
+    <li><a asp-controller="DateTime" asp-action="PassUsingViewData">Using ViewData</a></li>
+    <li><a asp-controller="DateTime" asp-action="PassUsingViewBag">Using ViewBag</a></li>
+    <li><a asp-controller="DateTime" asp-action="PassUsingModel">Using Model</a></li>
+    <li><a asp-controller="DateTime" asp-action="AccessServiceDirectly">Using Service Injection</a></li>
+</ul>
+<h2>Calculation Service Demonstration</h2>
+<ul>
+    <li><a asp-controller="Calc" asp-action="PassUsingViewData">Calculation Using ViewData</a></li>
+    <li><a asp-controller="Calc" asp-action="PassUsingViewBag">Calculation Using ViewBag</a></li>
+    <li><a asp-controller="Calc" asp-action="PassUsingModel">Calculation Using Model</a></li>
+    <li><a asp-controller="Calc" asp-action="AccessServiceDirectly">Calculation Using Service Injection</a></li>
+</ul>

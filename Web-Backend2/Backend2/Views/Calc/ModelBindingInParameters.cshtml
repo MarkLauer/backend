@@ -1,0 +1,52 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Hello Forms";
+}
+
+<style>
+    .form-control {
+        display: inline
+    }
+</style>
+
+<h2>Calculator</h2>
+
+<form asp-action="ModelWithSeparateHandlers">
+    <div class="form-group">
+        @if (ViewBag.FirstError != null)
+        {
+            <input type="text" name="First" class="form-control input-validation-error" />
+            <span class="field-validation-error">First operand is required</span>
+        }
+        else
+        {
+            <input type="text" name="First" class="form-control" />
+        }
+        <select name="Action">
+            <option value="Add">+</option>
+            <option value="Sub">-</option>
+            <option value="Mul">*</option>
+            <option value="Div">/</option>
+        </select>
+        @if (ViewBag.SecondError != null)
+        {
+            <input type="text" name="Second" class="form-control input-validation-error" />
+            <span class="field-validation-error">Second operand is required</span>
+        }
+        else if (ViewBag.DivisionError != null)
+        {
+            <input type="text" name="Second" class="form-control input-validation-error" />
+            <span class="field-validation-error">Division by zero is forbidden</span>
+        }
+        else
+        {
+            <input type="text" name="Second" class="form-control" />
+        }
+        <button type="submit" class="btn btn-primary">Calculate</button>
+
+        @if (Model != null)
+        {
+            <span>= @Model.Result</span>
+        }
+    </div>
+</form>
